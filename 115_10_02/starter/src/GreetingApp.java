@@ -1,5 +1,3 @@
-package src;
-
 public class GreetingApp {
     public static void main(String[] args) {
         // 使用固定資料，讓兩套 IDE 與 clone 後的結果可以逐行比較。
