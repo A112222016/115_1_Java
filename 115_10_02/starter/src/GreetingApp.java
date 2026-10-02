@@ -8,6 +8,6 @@ public class GreetingApp {
     }
 
     static String buildGreeting(String name) {
-        return "TODO";
+        return "Hello, " + name + "!";
     }
 }
