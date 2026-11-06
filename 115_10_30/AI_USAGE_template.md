@@ -1,10 +1,10 @@
-# 第五週 AI 使用紀錄
+# 第四週 AI 使用紀錄
 
 另存 AI_USAGE.md。每欄簡短填寫，不貼完整對話。使用真實服務、教師示範、模擬建議要據實標示。未使用 AI，第一欄寫「未使用」及原因，其餘可填不適用；本人課堂測試仍填 LAB_REPORT。不要上傳個資、密碼、憑證或未授權程式。
 
 | 欄位 | 本人紀錄 |
 |---|---|
-| 使用工具／方式 | 使用ChatGPT協助理解第五週作業內容與檢查程式碼 |
+| 使用工具／方式 | 使用ChatGPT協助理解第四週作業內容與檢查程式碼 |
 | 目的與提問摘要 | 詢問 MissionStep 建構子、Getter、isSuccessful()、ArrayList 歷史紀錄，以及 printReplay() 和 printSummary() 的修改方式。 |
 | 建議與本人處理 | 參考 ChatGPT 提供的修改方向，依照老師的 TODO 要求修改程式，包含調整輸出格式。 |
 | 本人實際驗證 | 測試原始指令 {1,1,2}，確認輸出 step 1 至 step 3、counts、steps、lowest energy 及最終結果符合預期。|
