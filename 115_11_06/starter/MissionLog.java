@@ -24,9 +24,9 @@ public class MissionLog {
                         energy -= 6;
                         samples += 2;
                         actionCount++;
-                        result = "OK";
+                        result = "成功";
                     } else {
-                        result = "NOT_ENOUGH_ENERGY";
+                        result = "能源不足";
                     }
                     break;
                 case 2:
@@ -34,9 +34,9 @@ public class MissionLog {
                         energy -= 2;
                         samples++;
                         actionCount++;
-                        result = "OK";
+                        result = "成功";
                     } else {
-                        result = "NOT_ENOUGH_ENERGY";
+                        result = "能源不足";
                     }
                     break;
                 case 3:
@@ -46,17 +46,17 @@ public class MissionLog {
                             energy = 20;
                         }
                         actionCount++;
-                        result = "OK";
+                        result = "成功";
                     } else {
-                        result = "ALREADY_FULL";
+                        result = "能源已滿";
                     }
                     break;
                 case 0:
                     running = false;
-                    result = "RETURN";
+                    result = "返回";
                     break;
                 default:
-                    result = "UNKNOWN_COMMAND";
+                    result = "無效指令";
                     break;
             }
             // 每讀一筆就建立一個新物件，記錄行動執行後的快照。
@@ -65,21 +65,21 @@ public class MissionLog {
 
         String outcome;
         if (samples >= 5) {
-            outcome = "SUCCESS";
+            outcome = "任務成功";
         } else if (energy == 0) {
-            outcome = "EXHAUSTED";
+            outcome = "能源耗盡";
         } else if (!running) {
-            outcome = "RETURNED";
+            outcome = "已返回";
         } else {
             // 固定腳本用完不等於返回；保留尚未完成這個新結果。
-            outcome = "UNFINISHED";
+            outcome = "任務未完成";
         }
         printReplay(history);
         System.out.println("counts[0..3]=" + Arrays.toString(countCommands(history)));
         printSummary(script.length, history);
-        System.out.println("final energy=" + energy + ", samples=" + samples
-                + ", actionCount=" + actionCount + " -> " + outcome);
-        System.out.println("battery=" + calculateBatteryPercent(energy));
+        System.out.println("最終能源=" + energy + ", 樣本數=" + samples
+                + ", 行動次數=" + actionCount + " -> " + outcome);
+        System.out.println("電池百分比=" + calculateBatteryPercent(energy));
     }
 
     static int[] countCommands(ArrayList<MissionStep> history) {
@@ -97,7 +97,7 @@ public class MissionLog {
     }
 
     static void printReplay(ArrayList<MissionStep> history) {
-        System.out.println("=== replay ===");
+        System.out.println("=== 任務回放 ===");
         for (int i = 0; i < history.size(); i++) {
             MissionStep step = history.get(i);
             int command = step.getCommand();
