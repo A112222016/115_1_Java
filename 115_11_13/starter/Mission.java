@@ -23,6 +23,16 @@ public class Mission {
 
     // run：依序執行腳本中的指令並記錄日誌，直到腳本讀完、收到返回指令，或探測車停止。
     public void run(int[] script) {
+        for (int i = 0; i < script.length; i++) {
+            if (rover.isStopped()) { break; }
+            int command = script[i];
+            String result = rover.execute(command);
+            history.add(new MissionStep(command, rover.getEnergy(), result));
+            if (command == 0) { 
+                returned = true;
+                break;
+            }
+        }
         // TODO 1：逐筆執行。先檢查 isStopped；每讀一筆就保存行動後快照。
         // 指令 0 也先記錄，再把 returned 設為 true 並離開迴圈。
     }
